@@ -70,22 +70,35 @@ function reFilp() {
 
 }
 
+function countInArray(array, what) {
+    var count = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === what) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
 window.onload = startGame();
 function startGame() {
 
     const arr = ["Green", "Blue", "Red", "Yellow", "Purple", "Sienna", "black", "gold"];
     const newArr = [];
-    for (; newArr.length != 8;) {
+    while ( newArr.length != 16) {
+        debugger
         let rnd = Math.floor(Math.random() * (8 - 1 + 1));
-        if (!newArr.includes(arr[rnd])) {
+        if (countInArray(newArr,arr[rnd]) < 2) {
             newArr.push(arr[rnd]);
         }
+    
     }
     console.log(newArr)
     newArr.forEach(el => {
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add("parintColor");
-        let divColor = document.createElement("div");
+        const divColor = document.createElement("div");
         divColor.style.backgroundColor = el;
         divColor.classList.add("childColor");
         div.appendChild(divColor)
@@ -94,25 +107,26 @@ function startGame() {
         gameBoard.appendChild(div);
 
     });
-    const newSecondArr = []
-    for (; newSecondArr.length != 8;) {
-        let rnd = Math.floor(Math.random() * (8 - 1 + 1));
-        if (!newSecondArr.includes(arr[rnd])) {
-            newSecondArr.push(arr[rnd]);
-        }
-    }
-    newSecondArr.forEach(el => {
-        let div = document.createElement("div");
-        div.classList.add("parintColor");
-        let divColor = document.createElement("div");
-        divColor.style.backgroundColor = el;
-        divColor.classList.add("childColor");
-        div.appendChild(divColor)
-        // divColor.style.width = "100%";
-        // divColor.style.height = "20vh";
-        gameBoard.appendChild(div);
 
-    });
+    // const newSecondArr = []
+    // while ( newSecondArr.length != 8) {
+    //     let rnd = Math.floor(Math.random() * (8 - 1 + 1));
+    //     if (!newSecondArr.includes(arr[rnd])) {
+    //         newSecondArr.push(arr[rnd]);
+    //     }
+    // }
+    // newSecondArr.forEach(el => {
+    //     const div = document.createElement("div");
+    //     div.classList.add("parintColor");
+    //     const divColor = document.createElement("div");
+    //     divColor.style.backgroundColor = el;
+    //     divColor.classList.add("childColor");
+    //     div.appendChild(divColor)
+    //     // divColor.style.width = "100%";
+    //     // divColor.style.height = "20vh";
+    //     gameBoard.appendChild(div);
+
+    // });
 }
 
 

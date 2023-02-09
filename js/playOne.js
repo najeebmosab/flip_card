@@ -121,5 +121,5 @@ returnToGame.addEventListener("click", () => {
 });
 
 backToMinu.addEventListener("click", () => {
-    document.location.href = "/startGame.html";
+    document.location.href = "/index.html";
 })

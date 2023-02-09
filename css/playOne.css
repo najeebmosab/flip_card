@@ -1,0 +1,100 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#container{
+    width: 80%;
+    height: fit-content;
+    background-color: #6f4da4;
+    margin: auto;
+}
+
+
+#container #viweData{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    line-height: 2rem;
+}
+#container #viweData h2{
+    font-size: 1.5vw;
+}
+
+#container #gameBoard{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    /* background-color: red; */
+    width: 100%;
+    height: fit-content;
+    max-height: fit-content;
+    padding: 10px;
+    
+}
+
+#container #gameBoard .parintColor{
+    width: 100%;
+    height: 20vh;
+    background-color: #cdcdcd;
+    cursor: pointer;
+}
+
+#container #gameBoard .childColor{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out,transform 0.9s ease-in-out;
+}
+
+#buttonsGroup{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#buttonsGroup div button{
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    border: #fff solid 1px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: border 1s ease-in-out,background-color 0.5s ease-in-out;
+}
+
+#buttonsGroup div button:hover{
+    background-color: #fff;
+    color: #6f4da4;
+    border: #6f4da4 solid 1px
+    ;
+}
+
+
+@media (max-width:768px) {
+    #container #gameBoard{
+        grid-template-columns: repeat(3,1fr);
+    }
+    #container #viweData{
+        display: block;
+    }
+}
+
+@media (max-width:500px) {
+    #container #gameBoard{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:300px)
+{
+    #container #gameBoard{
+        grid-template-columns: repeat(1,1fr);
+    } 
+}
